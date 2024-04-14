@@ -1,6 +1,6 @@
 use wpilib::ds::{*};
 
-trait Input {
+pub trait Input {
   // Functions we need to implement for a given input mechanism.
 
   fn a(&self) -> bool; 
@@ -34,10 +34,10 @@ trait Input {
   const BACK: u8 = 7;
   const START: u8 = 8;
 	
-  const LeftX: u8 = 0; // To-Do: Check that these are the correct values for said stick.
-  const LeftY: u8 = 1;
-  const RightX: u8 = 2;
-  const RightY: u8 = 3;
+  const LEFT_X: u8 = 0; // To-Do: Check that these are the correct values for said stick.
+  const LEFT_Y: u8 = 1;
+  const RIGHT_X: u8 = 2;
+  const RIGHT_Y: u8 = 3;
 
 }
 
@@ -86,18 +86,18 @@ impl Input for XboxController<'_> {
   }
 
   fn leftx(&self) -> f32 {
-    self.raw_axis(Self::LeftX)
+    self.raw_axis(Self::LEFT_X)
   }
 
   fn lefty(&self) -> f32 {
-    self.raw_axis(Self::LeftY) 
+    self.raw_axis(Self::LEFT_Y) 
   }
 
   fn rightx(&self) -> f32 {
-    self.raw_axis(Self::RightX)
+    self.raw_axis(Self::RIGHT_X)
   }
 	
   fn righty(&self) -> f32 {
-    self.raw_axis(Self::RightY)
+    self.raw_axis(Self::RIGHT_Y)
   }
 }

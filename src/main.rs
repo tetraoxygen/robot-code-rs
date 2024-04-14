@@ -3,6 +3,7 @@ use wpilib::{ds::Alliance, *};
 
 // our files
 mod input;
+mod drivetrain;
 
 fn main() {
     // MARK: Setup
@@ -23,4 +24,3 @@ fn main() {
         }
     }
 }
-
