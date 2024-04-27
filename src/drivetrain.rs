@@ -2,7 +2,7 @@ use wpilib::{pwm::PWM, *};
 pub use wpilib::pwm::PwmSpeedController;
 use crate::input::Input;
 
-  struct Drivetrain {
+  pub struct Drivetrain {
     front_left_motor: pwm::PwmSpeedController,
     front_right_motor: pwm::PwmSpeedController,
     back_left_motor: pwm::PwmSpeedController,
@@ -80,3 +80,5 @@ use crate::input::Input;
       self.back_right_motor.set(right_speed);
     }
   }
+  
+  

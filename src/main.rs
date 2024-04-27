@@ -1,5 +1,7 @@
 // crates
-use wpilib::{ds::Alliance, *};
+use wpilib::{ds::{Alliance, JoystickPort}, *};
+use drivetrain::Drivetrain;
+use input::{Input, XboxController};
 
 // our files
 mod input;
@@ -9,7 +11,12 @@ fn main() {
     // MARK: Setup
     RobotBase::start_competition();
     let robot = RobotBase::new().expect("HAL FAILED");
+    let mut drivebase = Drivetrain::new();
     let ds = robot.make_ds();
+
+    // To-Do: Assign DS & Joystick port 
+    // Joystick port can be created using ds::JoystickPort::new(u8)
+    let driverController = XboxController{ ds: todo!(), port: todo!() };
 
     // MARK: Match code
 
@@ -23,4 +30,10 @@ fn main() {
             println!("Blue Alliance")
         }
     }
+
+    while ds.robot_state() == wpilib::ds::RobotState::Teleop {
+        drivebase.tank_drive(&driverController);
+    }
+    
 }
+

@@ -41,9 +41,9 @@ pub trait Input {
 
 }
 
-struct XboxController<'a> {
+pub struct XboxController<'a> {
   ds: &'a DriverStation<'a>,
-  port: JoystickPort,
+  port: JoystickPort
 }
 
 impl XboxController<'_> {
